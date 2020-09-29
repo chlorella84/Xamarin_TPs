@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:Tp2_twitter"
+             xmlns:utils="clr-namespace:Tp2_twitter.Utils"
              mc:Ignorable="d"
              x:Class="Tp2_twitter.MainPage">
 
-    <Grid>
+    <Grid x:Name="mainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -16,31 +16,52 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
             <RowDefinition Height="7*"/>
+            <RowDefinition Height="7*"/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
         <ContentView BackgroundColor="#58B0F0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
             <Grid Margin="10, 25">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <ImageButton Source="pencil.png" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start"/>
-                <Label Grid.Row="0" Grid.Column="1" TextColor="White" Text="Accueil" FontSize ="20" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalOptions ="Center"></Label>
-                <ImageButton Source="search.png" Grid.Row="0" Grid.Column="2" HorizontalOptions="End"/>
+                <ImageButton 
+                    BorderColor="Transparent"
+                    BackgroundColor="Transparent"
+                    WidthRequest="150"
+                    HeightRequest="150"
+                    Aspect="AspectFit" Source="pencil.png" Grid.Row="0" Grid.Column="0" HorizontalOptions="StartAndExpand"></ImageButton>
+                <Label Grid.Row="0" Grid.Column="1" FontSize="20" FontAttributes="Bold" TextColor="White" Text="Accueil" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
+                <ImageButton 
+                    WidthRequest="150"
+                    HeightRequest="150"
+                    Aspect="AspectFit" Source="search.png" Grid.Row="0" Grid.Column="2" HorizontalOptions="EndAndExpand"></ImageButton>
             </Grid>
         </ContentView>
         <ContentView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+            <StackLayout>
+                <Label Text="Connexion à twitter" TextColor="Gray" HorizontalOptions="CenterAndExpand"></Label>
+                <Entry Placeholder="Identifiant twitter" HorizontalOptions="FillAndExpand"/>
+                <Entry Placeholder="Mot de passe" IsPassword="True" HorizontalOptions="FillAndExpand"/>
+                <StackLayout Orientation="Horizontal">
+                    <Switch/>
+                    <Label Text="Mémoriser mes informations" TextColor="Gray" VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <Button Text="SE CONNECTER" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+        </ContentView>
+        <ContentView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
             <!--<ScrollView HorizontalOptions="FillAndExpand">-->
             <ScrollView>
                 <!--<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">-->
                 <StackLayout>
                     <!--<ContentView  HorizontalOptions="FillAndExpand">-->
-                    <local:View1/>
-                    <BoxView Color="Gray" Opacity="0.15" HeightRequest="2" HorizontalOptions="Fill"/>
+                    
+
                     <ContentView>
                         <StackLayout>
                             <ContentView>
@@ -53,10 +74,10 @@
                                         <ColumnDefinition Width="25"/>
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="25"/>
+                                        <RowDefinition/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
-                                    <ContentView BackgroundColor="Black" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
+                                    <Image Source="https://picsum.photos/50/50/?random.jpg" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
                                     <Label Text="Antoine" Grid.Row="0" Grid.Column="1"></Label>
                                     <Label Text="@AntoineTweet" Grid.Row="0" Grid.Column="2"></Label>
                                     <Label Text="50s" TextColor="Gray" Grid.Row="0" Grid.Column="3"></Label>
@@ -68,15 +89,13 @@ convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row
                             <ContentView>
                                 <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">-->
                                 <StackLayout Orientation="Horizontal">
-                                    <Label TextColor="Black" Text="Répondre" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                    <Label TextColor="Black" Text="Retweet" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                    <Label TextColor="Black" Text="Favoris" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
+                                    <ImageButton Source="reply.png" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="retweet.png" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="favorite.png" HorizontalOptions="CenterAndExpand"></ImageButton>
                                 </StackLayout>
                             </ContentView>
                         </StackLayout>
                     </ContentView>
-                    <BoxView Color="Gray" Opacity="0.15" HeightRequest="2" HorizontalOptions="Fill"/>
-                    <!--<ContentView  HorizontalOptions="FillAndExpand">-->
                     <ContentView>
                         <StackLayout>
                             <ContentView>
@@ -89,10 +108,10 @@ convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row
                                         <ColumnDefinition Width="25"/>
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="25"/>
+                                        <RowDefinition/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
-                                    <ContentView BackgroundColor="Black" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
+                                    <Image Source="https://picsum.photos/50/50/?random.jpg" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
                                     <Label Text="Antoine" Grid.Row="0" Grid.Column="1"></Label>
                                     <Label Text="@AntoineTweet" Grid.Row="0" Grid.Column="2"></Label>
                                     <Label Text="50s" TextColor="Gray" Grid.Row="0" Grid.Column="3"></Label>
@@ -104,15 +123,13 @@ convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row
                             <ContentView>
                                 <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">-->
                                 <StackLayout Orientation="Horizontal">
-                                    <Label TextColor="Black" Text="Répondre" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                    <Label TextColor="Black" Text="Retweet" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                    <Label TextColor="Black" Text="Favoris" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
+                                    <ImageButton Source="reply.png" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="retweet.png" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="favorite.png" HorizontalOptions="CenterAndExpand"></ImageButton>
                                 </StackLayout>
                             </ContentView>
                         </StackLayout>
                     </ContentView>
-                    <BoxView Color="Gray" Opacity="0.15" HeightRequest="2" HorizontalOptions="Fill"/>
-                    <!--<ContentView  HorizontalOptions="FillAndExpand">-->
                     <ContentView>
                         <StackLayout>
                             <ContentView>
@@ -125,10 +142,10 @@ convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row
                                         <ColumnDefinition Width="25"/>
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="25"/>
+                                        <RowDefinition/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
-                                    <ContentView BackgroundColor="Black" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
+                                    <Image Source="https://picsum.photos/50/50/?random.jpg" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
                                     <Label Text="Antoine" Grid.Row="0" Grid.Column="1"></Label>
                                     <Label Text="@AntoineTweet" Grid.Row="0" Grid.Column="2"></Label>
                                     <Label Text="50s" TextColor="Gray" Grid.Row="0" Grid.Column="3"></Label>
@@ -140,15 +157,14 @@ convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row
                             <ContentView>
                                 <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">-->
                                 <StackLayout Orientation="Horizontal">
-                                    <Label TextColor="Black" Text="Répondre" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                    <Label TextColor="Black" Text="Retweet" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                    <Label TextColor="Black" Text="Favoris" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
+
+                                    <ImageButton Source="reply.png" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="retweet.png" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="favorite.png" HorizontalOptions="CenterAndExpand"></ImageButton>
                                 </StackLayout>
                             </ContentView>
                         </StackLayout>
                     </ContentView>
-                    <BoxView Color="Gray" Opacity="0.15" HeightRequest="2" HorizontalOptions="Fill"/>
-                    <!--<ContentView  HorizontalOptions="FillAndExpand">-->
                     <ContentView>
                         <StackLayout>
                             <ContentView>
@@ -161,10 +177,10 @@ convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row
                                         <ColumnDefinition Width="25"/>
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="25"/>
+                                        <RowDefinition/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
-                                    <ContentView BackgroundColor="Black" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
+                                    <Image Source="https://picsum.photos/50/50/?random.jpg" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
                                     <Label Text="Antoine" Grid.Row="0" Grid.Column="1"></Label>
                                     <Label Text="@AntoineTweet" Grid.Row="0" Grid.Column="2"></Label>
                                     <Label Text="50s" TextColor="Gray" Grid.Row="0" Grid.Column="3"></Label>
@@ -176,15 +192,13 @@ convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row
                             <ContentView>
                                 <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">-->
                                 <StackLayout Orientation="Horizontal">
-                                    <Label TextColor="Black" Text="Répondre" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                    <Label TextColor="Black" Text="Retweet" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                    <Label TextColor="Black" Text="Favoris" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
+                                    <ImageButton Source="reply.png" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="retweet.png" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="favorite.png" HorizontalOptions="CenterAndExpand"></ImageButton>
                                 </StackLayout>
                             </ContentView>
                         </StackLayout>
                     </ContentView>
-                    <BoxView Color="Gray" Opacity="0.15" HeightRequest="2" HorizontalOptions="Fill"/>
-                    <!--<ContentView  HorizontalOptions="FillAndExpand">-->
                     <ContentView>
                         <StackLayout>
                             <ContentView>
@@ -197,10 +211,10 @@ convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row
                                         <ColumnDefinition Width="25"/>
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="25"/>
+                                        <RowDefinition/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
-                                    <ContentView BackgroundColor="Black" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
+                                    <Image Source="https://picsum.photos/50/50/?random.jpg" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
                                     <Label Text="Antoine" Grid.Row="0" Grid.Column="1"></Label>
                                     <Label Text="@AntoineTweet" Grid.Row="0" Grid.Column="2"></Label>
                                     <Label Text="50s" TextColor="Gray" Grid.Row="0" Grid.Column="3"></Label>
@@ -212,162 +226,17 @@ convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row
                             <ContentView>
                                 <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">-->
                                 <StackLayout Orientation="Horizontal">
-                                    <Label TextColor="Black" Text="Répondre" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                    <Label TextColor="Black" Text="Retweet" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                    <Label TextColor="Black" Text="Favoris" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
+                                    <ImageButton Source="reply.png" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="retweet.png" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="favorite.png" HorizontalOptions="CenterAndExpand"></ImageButton>
                                 </StackLayout>
                             </ContentView>
                         </StackLayout>
                     </ContentView>
-                    <BoxView Color="Gray" Opacity="0.15" HeightRequest="2" HorizontalOptions="Fill"/>
-                    <!--<ContentView  HorizontalOptions="FillAndExpand">-->
-                    <ContentView>
-                        <StackLayout>
-                            <ContentView>
-                                <!--<Grid HorizontalOptions="FillAndExpand">-->
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="75"/>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="25"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="25"/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-                                    <ContentView BackgroundColor="Black" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
-                                    <Label Text="Antoine" Grid.Row="0" Grid.Column="1"></Label>
-                                    <Label Text="@AntoineTweet" Grid.Row="0" Grid.Column="2"></Label>
-                                    <Label Text="50s" TextColor="Gray" Grid.Row="0" Grid.Column="3"></Label>
-                                    <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod
-convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"></Label>
-                                </Grid>
-                            </ContentView>
-                            <!--<ContentView HorizontalOptions="FillAndExpand" VerticalOptions="Fill">-->
-                            <ContentView>
-                                <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">-->
-                                <StackLayout Orientation="Horizontal">
-                                    <Label TextColor="Black" Text="Répondre" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                    <Label TextColor="Black" Text="Retweet" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                    <Label TextColor="Black" Text="Favoris" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                </StackLayout>
-                            </ContentView>
-                        </StackLayout>
-                    </ContentView>
-                    <BoxView Color="Gray" Opacity="0.15" HeightRequest="2" HorizontalOptions="Fill"/>
-                    <!--<ContentView  HorizontalOptions="FillAndExpand">-->
-                    <ContentView>
-                        <StackLayout>
-                            <ContentView>
-                                <!--<Grid HorizontalOptions="FillAndExpand">-->
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="75"/>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="25"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="25"/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-                                    <ContentView BackgroundColor="Black" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
-                                    <Label Text="Antoine" Grid.Row="0" Grid.Column="1"></Label>
-                                    <Label Text="@AntoineTweet" Grid.Row="0" Grid.Column="2"></Label>
-                                    <Label Text="50s" TextColor="Gray" Grid.Row="0" Grid.Column="3"></Label>
-                                    <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod
-convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"></Label>
-                                </Grid>
-                            </ContentView>
-                            <!--<ContentView HorizontalOptions="FillAndExpand" VerticalOptions="Fill">-->
-                            <ContentView>
-                                <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">-->
-                                <StackLayout Orientation="Horizontal">
-                                    <Label TextColor="Black" Text="Répondre" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                    <Label TextColor="Black" Text="Retweet" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                    <Label TextColor="Black" Text="Favoris" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                </StackLayout>
-                            </ContentView>
-                        </StackLayout>
-                    </ContentView>
-                    <BoxView Color="Gray" Opacity="0.15" HeightRequest="2" HorizontalOptions="Fill"/>
-                    <!--<ContentView  HorizontalOptions="FillAndExpand">-->
-                    <ContentView>
-                        <StackLayout>
-                            <ContentView>
-                                <!--<Grid HorizontalOptions="FillAndExpand">-->
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="75"/>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="25"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="25"/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-                                    <ContentView BackgroundColor="Black" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
-                                    <Label Text="Antoine" Grid.Row="0" Grid.Column="1"></Label>
-                                    <Label Text="@AntoineTweet" Grid.Row="0" Grid.Column="2"></Label>
-                                    <Label Text="50s" TextColor="Gray" Grid.Row="0" Grid.Column="3"></Label>
-                                    <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod
-convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"></Label>
-                                </Grid>
-                            </ContentView>
-                            <!--<ContentView HorizontalOptions="FillAndExpand" VerticalOptions="Fill">-->
-                            <ContentView>
-                                <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">-->
-                                <StackLayout Orientation="Horizontal">
-                                    <Label TextColor="Black" Text="Répondre" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                    <Label TextColor="Black" Text="Retweet" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                    <Label TextColor="Black" Text="Favoris" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                </StackLayout>
-                            </ContentView>
-                        </StackLayout>
-                    </ContentView>
-                    <BoxView Color="Gray" Opacity="0.15" HeightRequest="2" HorizontalOptions="Fill"/>
-                    <!--<ContentView  HorizontalOptions="FillAndExpand">-->
-                    <ContentView>
-                        <StackLayout>
-                            <ContentView>
-                                <!--<Grid HorizontalOptions="FillAndExpand">-->
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="75"/>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="25"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="25"/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-                                    <ContentView BackgroundColor="Black" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
-                                    <Label Text="Antoine" Grid.Row="0" Grid.Column="1"></Label>
-                                    <Label Text="@AntoineTweet" Grid.Row="0" Grid.Column="2"></Label>
-                                    <Label Text="50s" TextColor="Gray" Grid.Row="0" Grid.Column="3"></Label>
-                                    <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod
-convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"></Label>
-                                </Grid>
-                            </ContentView>
-                            <!--<ContentView HorizontalOptions="FillAndExpand" VerticalOptions="Fill">-->
-                            <ContentView>
-                                <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">-->
-                                <StackLayout Orientation="Horizontal">
-                                    <Label TextColor="Black" Text="Répondre" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                    <Label TextColor="Black" Text="Retweet" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                    <Label TextColor="Black" Text="Favoris" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
-                                </StackLayout>
-                            </ContentView>
-                        </StackLayout>
-                    </ContentView>
-                    <BoxView Color="Gray" Opacity="0.15" HeightRequest="2" HorizontalOptions="Fill"/>
                 </StackLayout>
             </ScrollView>
         </ContentView>
-        <ContentView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+        <ContentView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
             <StackLayout Orientation="Horizontal">
                 <Label TextColor="Gray" Text="Fil" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                 <Label TextColor="Gray" Text="Notification" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>

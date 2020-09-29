@@ -154,7 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tp2-twitter\Tp2-twitter.csproj">
-      <Project>{B181E38D-BA4D-4565-BDC6-1DE6891999CA}</Project>
+      <Project>{04564B01-EC9A-41AD-90C6-34BD476E67BB}</Project>
       <Name>Tp2-twitter</Name>
     </ProjectReference>
   </ItemGroup>
