@@ -6,11 +6,127 @@
              mc:Ignorable="d"
              x:Class="TP_twitter.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+    <StackLayout >
+
+
+        <Grid VerticalOptions="Start">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <BoxView Grid.Row="0"
+                 Grid.ColumnSpan="3"
+                 Color="#58B0F0" />
+            <Label Grid.Row="0"
+               Grid.Column="0"
+               Text="Nouveau"
+               TextColor="White"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+            <Label Grid.Row="0"
+               Grid.Column="1"
+               Text="Accueil"
+               TextColor="White"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+            <Label Grid.Row="0"
+               Grid.Column="2"
+               Text="Rechercher"
+               TextColor="White"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+        </Grid>
+        
+        <ScrollView Orientation="Vertical" 
+                    VerticalOptions="FillAndExpand">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+
+                <Label Grid.Row="0"
+               Grid.Column="1"
+               Grid.ColumnSpan="2"        
+               Text="Author"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+                <Label Grid.Row="0"
+               Grid.Column="3"
+       
+               Text="il y a 1h"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+                
+                <Label Grid.Row="1"
+               Grid.ColumnSpan="3"           
+               Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.
+                       "
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+                <Label Grid.Row="2"
+               Grid.Column="0"
+               Text="Répondre"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+                <Label Grid.Row="2"
+               Grid.Column="1"
+               Text="Retweet"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+                <Label Grid.Row="2"
+               Grid.Column="2"
+               Text="Favoris"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+            </Grid>
+
+        </ScrollView>
+
+        
+        <Grid VerticalOptions="End" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0"
+               Grid.Column="0"
+               Text="Fil"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+            <Label Grid.Row="0"
+               Grid.Column="1"
+               Text="Notifications"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+            <Label Grid.Row="0"
+               Grid.Column="2"
+               Text="Messages"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+            <Label Grid.Row="0"
+               Grid.Column="3"
+               Text="Moi"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+        </Grid>
     </StackLayout>
 
 </ContentPage>
