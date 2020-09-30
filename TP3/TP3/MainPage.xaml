@@ -65,6 +65,8 @@
 
             <ScrollView VerticalOptions="Fill" HorizontalOptions="Fill" x:Name="tweets" IsVisible="false">
                 <StackLayout>
+                    <local:Tweet />
+                    <local:Tweet/>
                     <local:Tweet/>
                     <local:Tweet/>
                     <local:Tweet/>

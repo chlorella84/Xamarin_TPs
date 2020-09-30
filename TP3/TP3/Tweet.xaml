@@ -1,8 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
              x:Class="TP3.Tweet">
-    <ContentPage.Content>
+    
+    
+
         <StackLayout>
             <!--<Grid HorizontalOptions="FillAndExpand">-->
             <Grid>
@@ -17,8 +22,8 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Image Source="https://picsum.photos/50/50/?random.jpg" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
-                <Label Text="Antoine" Grid.Row="0" Grid.Column="1"></Label>
-                <Label Text="@AntoineTweet" Grid.Row="0" Grid.Column="2"></Label>
+                <Label Text="Dominika" Grid.Row="0" Grid.Column="1"></Label>
+                <Label Text="@le_sliwa" Grid.Row="0" Grid.Column="2"></Label>
                 <Label Text="50s" TextColor="Gray" Grid.Row="0" Grid.Column="3"></Label>
                 <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod
 convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"></Label>
@@ -31,5 +36,5 @@ convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row
                 <ImageButton Source="favorite.png" HorizontalOptions="CenterAndExpand"></ImageButton>
             </StackLayout>
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+
+</ContentView>
