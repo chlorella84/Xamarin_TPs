@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TP6.Views.ConnexionFormView">
+    <ContentView.Content>
+        <StackLayout Margin="10">
+            <Label Text="Connexion à Twitter" HorizontalOptions="Center"/>
+            <Entry Placeholder="Identifiant Twitter" x:Name="id"/>
+            <Entry IsPassword="True" Placeholder="Mot de Passe" x:Name="password"/>
+            <StackLayout Orientation="Horizontal">
+                <Switch  HorizontalOptions="Start" x:Name="remember_me"/>
+                <Label Text="Mémoriser mes informations" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+            <Button Text="Se connecter" HorizontalOptions="FillAndExpand" x:Name="btn_connect"/>
+            <Label x:Name="error_id" IsVisible="False"  TextColor="Red"/>
+            <Label x:Name="error_pwd" IsVisible="False" TextColor="Red"/>
+            <Label x:Name="error_CNX" IsVisible="False" TextColor="Red"/>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
