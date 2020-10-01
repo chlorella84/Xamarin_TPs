@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:TP5"
+             mc:Ignorable="d"
+             x:Class="TP5.MainPage">
+
+    <Grid x:Name="mainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
+        <ContentView BackgroundColor="#58B0F0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+            <Grid Margin="10, 25">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <ImageButton 
+                    BorderColor="Transparent"
+                    BackgroundColor="Transparent"
+                    WidthRequest="150"
+                    HeightRequest="150"
+                    Aspect="AspectFit" Source=".\Assets\pencil.png" Grid.Row="0" Grid.Column="0" HorizontalOptions="StartAndExpand"></ImageButton>
+                <Label Grid.Row="0" Grid.Column="1" FontSize="20" FontAttributes="Bold" TextColor="White" Text="Accueil" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
+                <ImageButton 
+                    WidthRequest="150"
+                    HeightRequest="150"
+                    Aspect="AspectFit" Source=".\Assets\search.png" Grid.Row="0" Grid.Column="2" HorizontalOptions="EndAndExpand"></ImageButton>
+            </Grid>
+        </ContentView>
+        <ContentView x:Name="form_cnx" IsVisible ="True"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+            <StackLayout>
+                <Label Text="Connexion à twitter" TextColor="Gray" HorizontalOptions="CenterAndExpand"></Label>
+                <Entry Placeholder="Identifiant twitter" x:Name="id" HorizontalOptions="FillAndExpand"/>
+                <Entry Placeholder="Mot de passe" IsPassword="True" x:Name="password" HorizontalOptions="FillAndExpand"/>
+                <StackLayout Orientation="Horizontal">
+                    <Switch IsToggled="True" x:Name="remember_me"/>
+                    <Label Text="Mémoriser mes informations" TextColor="Gray" VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <Button Text="SE CONNECTER" x:Name="Btn_CNX"  HorizontalOptions="FillAndExpand"/>
+
+                <Label x:Name="error_id" IsVisible="False" BackgroundColor="red" TextColor="White"/>
+                <Label x:Name="error_password" IsVisible="False" BackgroundColor="red" TextColor="White"/>
+                <Label x:Name="error_authentification" IsVisible="False" BackgroundColor="red" TextColor="White"/>
+                <Label x:Name="error_connectivity" IsVisible="False" BackgroundColor="red" TextColor="White"/>
+
+            </StackLayout>
+        </ContentView>
+        <ContentView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+
+            <!--<ScrollView">-->
+
+            <ScrollView VerticalOptions="Fill" HorizontalOptions="Fill" x:Name="tweets" IsVisible="false">
+                <StackLayout>
+                    <local:TweetView />
+                    <local:TweetView />
+                    <local:TweetView />
+                    <local:TweetView />
+                    <local:TweetView />
+                </StackLayout>
+            </ScrollView>
+        </ContentView>
+
+
+        <ContentView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
+            <StackLayout Orientation="Horizontal">
+                <Label TextColor="Gray" Text="Fil" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                <Label TextColor="Gray" Text="Notification" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                <Label TextColor="Gray" Text="Messages" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                <Label TextColor="Gray" Text="Moi" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+        </ContentView>
+    </Grid>
+
+</ContentPage>
